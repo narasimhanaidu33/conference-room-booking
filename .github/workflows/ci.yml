@@ -46,3 +46,9 @@ jobs:
           docker build -t conference-weather ./weather-service
           docker tag conference-weather:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-weather:latest
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-weather:latest
+
+      - name: Build and push frontend
+        run: |
+          docker build -t conference-frontend ./frontend
+          docker tag conference-frontend:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-frontend:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-frontend:latest
