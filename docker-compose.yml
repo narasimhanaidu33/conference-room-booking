@@ -1,0 +1,45 @@
+version: "3.8"
+
+services:
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "5001:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/authdb
+      - JWT_SECRET=mysecretkey
+
+  room-service:
+    build: ./room-service
+    ports:
+      - "5003:5002"
+    environment:
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/roomdb
+
+  weather-service:
+    build: ./weather-service
+    ports:
+      - "5004:5004"
+
+  booking-service:
+    build: ./booking-service
+    ports:
+      - "5005:5005"
+    environment:
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/bookingdb
+      - ROOM_SERVICE_URL=http://room-service:5002
+      - WEATHER_SERVICE_URL=http://weather-service:5004
+      - JWT_SECRET=mysecretkey
+    depends_on:
+      - room-service
+      - weather-service
+      - auth-service
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - auth-service
+      - room-service
+      - booking-service
