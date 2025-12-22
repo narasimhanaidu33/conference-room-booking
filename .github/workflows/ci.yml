@@ -40,3 +40,9 @@ jobs:
           docker build -t conference-booking ./booking-service
           docker tag conference-booking:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-booking:latest
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-booking:latest
+
+      - name: Build and push weather-service
+        run: |
+          docker build -t conference-weather ./weather-service
+          docker tag conference-weather:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-weather:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-weather:latest
