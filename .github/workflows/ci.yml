@@ -34,3 +34,9 @@ jobs:
           docker build -t conference-room ./room-service
           docker tag conference-room:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-room:latest
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-room:latest
+
+      - name: Build and push booking-service
+        run: |
+          docker build -t conference-booking ./booking-service
+          docker tag conference-booking:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-booking:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-booking:latest
