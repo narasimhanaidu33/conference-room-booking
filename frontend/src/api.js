@@ -1,19 +1,15 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost",
-});
-
 export const authApi = axios.create({
-  baseURL: "http://localhost:5001/api/auth",
+  baseURL: import.meta.env.VITE_AUTH_API,
 });
 
 export const roomApi = axios.create({
-  baseURL: "http://localhost:5003/api",
+  baseURL: import.meta.env.VITE_ROOM_API,
 });
 
 export const bookingApi = axios.create({
-  baseURL: "http://localhost:5005/api",
+  baseURL: import.meta.env.VITE_BOOKING_API,
 });
 
 export const withAuth = () => ({
@@ -21,3 +17,4 @@ export const withAuth = () => ({
     Authorization: `Bearer ${localStorage.getItem("token")}`,
   },
 });
+
