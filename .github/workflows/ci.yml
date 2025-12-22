@@ -28,3 +28,9 @@ jobs:
           docker build -t conference-auth ./auth-service
           docker tag conference-auth:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-auth:latest
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-auth:latest
+
+      - name: Build and push room-service
+        run: |
+          docker build -t conference-room ./room-service
+          docker tag conference-room:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-room:latest
+          docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/conference-room:latest
