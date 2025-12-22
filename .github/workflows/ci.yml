@@ -2,7 +2,7 @@ name: CI - Build & Push Auth Service
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build-auth:
