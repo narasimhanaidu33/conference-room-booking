@@ -38,7 +38,7 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "5173:5173"
     depends_on:
       - auth-service
       - room-service
