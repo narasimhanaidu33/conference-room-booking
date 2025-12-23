@@ -15,7 +15,7 @@ export default function Login() {
 
   return (
     <div className="form-card">
-  <h2>Login</h2>
+  <h2>Devops</h2>
 
   <input
     placeholder="Email"
