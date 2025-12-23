@@ -31,7 +31,9 @@ export default function Rooms() {
         withAuth()
       );
 
+      await new Promise(resolve => setTimeout(resolve, 50));
       navigate("/result", { state: res.data });
+
 
     } catch (err) {
       console.error("BOOKING ERROR:", err);

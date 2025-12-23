@@ -44,7 +44,7 @@ exports.createBooking = async (req, res) => {
 
     // 4️⃣ Fetch weather
     const weatherResponse = await axios.get(
-      `${process.env.WEATHER_SERVICE_URL}/weather`,
+      `${process.env.WEATHER_SERVICE_URL}/api/weather`,
       {
         params: { location: locationName, date },
       }
