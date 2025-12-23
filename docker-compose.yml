@@ -6,7 +6,7 @@ services:
     ports:
       - "5001:5000"
     environment:
-      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/authdb
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty1234@freecluster.pzmwbbp.mongodb.net/authdb
       - JWT_SECRET=mysecretkey
 
   room-service:
@@ -14,7 +14,7 @@ services:
     ports:
       - "5003:5002"
     environment:
-      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/roomdb
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty1234@freecluster.pzmwbbp.mongodb.net/roomdb
 
   weather-service:
     build: ./weather-service
@@ -26,7 +26,7 @@ services:
     ports:
       - "5005:5005"
     environment:
-      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty%4012@freecluster.pzmwbbp.mongodb.net/bookingdb
+      - MONGO_URI=mongodb+srv://NarasimhaNaidu:Qwerty1234@freecluster.pzmwbbp.mongodb.net/bookingdb
       - ROOM_SERVICE_URL=http://room-service:5002
       - WEATHER_SERVICE_URL=http://weather-service:5004
       - JWT_SECRET=mysecretkey
